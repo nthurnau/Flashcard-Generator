@@ -19,5 +19,13 @@ var ClozeFlashcard = function(text, cloze) {
 			});
 		});
 	};
+    this.returnClozeAnswer = function () {
+        fs.readFile('clozeCards.txt', "utf8", function read(err, data) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(data); 
+});
+    };
 };
 module.exports = ClozeFlashcard;
