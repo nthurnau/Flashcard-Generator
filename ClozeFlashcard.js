@@ -1,25 +1,23 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
-
-function ClozeFlashcard(front, back) {
-    this.front = front;
-    this.back = back;
+var ClozeFlashcard = function(text, cloze) {
+	this.text = text;
+	this.cloze = cloze;
+	this.createClozelashcard = function() {
+		inquirer.prompt([{
+			name: "text",
+			message: "What is the partial flashcard text?"
+		}, {
+			name: "cloze",
+			message: "What is the cloze text?"
+		}]).then(function(answers) {
+			var flashcard = new ClozeFlashcard(answers.text, answers.cloze);
+			fs.appendFile("clozeCards.txt", "Partial flashcard text is: " + answers.text + "\nCloze text is: " + answers.cloze + "\n#*#*#*#*#*\n", "utf8", function(err) {
+				if (err) {
+					return console.log(err);
+				}
+			});
+		});
+	};
 };
-
-var createClozelashcard = function() {
-    inquirer.prompt([
-        {
-            name: "front",
-            message: "What is the flashcard question?"
-        }, {
-            name: "back",
-            message: "What is the answer?"
-        }
-    ]).then(function(answers) {
-        var flashcard = new ClozeFlashcard(answers.front, answers.back);
-        fs.appendFile("flashcards.txt", "Flashcard question is: "+answers.front+"\nFlashcard answer is: "+answers.back+"\n#*#*#*#*#*", "utf8");
-    });
-
-};
-
-createBasicFlashcard();
+module.exports = ClozeFlashcard;

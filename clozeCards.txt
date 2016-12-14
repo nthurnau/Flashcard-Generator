@@ -1,0 +1,15 @@
+Partial flashcard text is: question 1
+Cloze text is: answer 1
+#*#*#*#*#*
+Partial flashcard text is: question 2
+Cloze text is: answer 2
+#*#*#*#*#*
+Partial flashcard text is: question 3
+Cloze text is: answer 3
+#*#*#*#*#*
+Partial flashcard text is: question 4
+Cloze text is: answer 4
+#*#*#*#*#*
+Partial flashcard text is: question 5
+Cloze text is: answer 5
+#*#*#*#*#*
